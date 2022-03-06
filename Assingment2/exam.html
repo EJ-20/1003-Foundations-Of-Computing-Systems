@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JavaScript Example for Top Tables</title>
+<style>
+h1 {font-family:serif; font-size:36px; color:#ff0000; text-align:center}
+p {text-align: center}
+</style>
+</head>
+
+<body>
+
+
+<h1>Simple password<br>check script</h1>
+
+ <p>Please enter your new password here:<br>
+  <input id="Pword1" type="text"  value=""><br>
+ Please confirm your password here:<br>
+ <input id="Pword2" type="text"  value="">
+<br><br>
+<button type="button" onClick= "PasswordCheck()">Submit</button></p>
+<p  id="Check1"></p>
+<p  id="Check2"></p>
+<p id="Result"></p>
+
+<script>
+    function PasswordCheck() {
+        var p1 = Pword1.value;
+        var p2 = Pword2.value;
+        if (p1 != p2) {
+            document.getElementById("Check1").innerHTML = "Your passwords do not match";
+        }
+        var l = p1.length;
+        if (l < 5) {
+            document.getElementById("Check1").innerHTML = "Give longer password";
+        }
+        if (p1 == p2 && l >= 5){
+            document.getElementById("Check2").innerHTML = "Password stored";
+        } else {
+            document.getElementById("Check2").innerHTML = "Please re-enter your password";
+        }
+    }
+</script>
+
+</body>
+
+</html>
