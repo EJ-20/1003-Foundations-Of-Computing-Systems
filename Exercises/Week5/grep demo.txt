@@ -1,0 +1,28 @@
+You need to be using a Unix/Linux/MacOS environment to use GREP.
+
+It's not part of Windows/Chrome OS/Android/IOS and so on.
+
+GREP is not formally part of the course, so don't worry if you are not able to use it right now.
+
+For your own development as a computer scientist it is something worth learning when you next have the opportunity to use a labnet machine.
+
+Simple examples, using the included text files:
+-----------------------------------------------
+
+grep -c "Mrs. Bennet" Pride\ and\ Prejudice.txt 
+
+grep -n "picture" Shopping\ List.txt
+
+grep -n "fram.*" Shopping\ List.txt
+
+grep -n ".\{0,5\}board." Shopping\ List.txt
+
+
+More examples and guidance:
+---------------------------
+
+A large collection of Unix/Linux GREP examples:
+https://alvinalexander.com/unix/edu/examples/grep.shtml
+
+GREP at geeksforgeeks:
+https://www.geeksforgeeks.org/grep-command-in-unixlinux/

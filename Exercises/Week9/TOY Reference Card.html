@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<pre><br />
+             TOY REFERENCE CARD
+
+
+INSTRUCTION FORMATS
+             
+             | . . . . | . . . . | . . . . | . . . .|
+  Format RR: | opcode  |    d    |    s    |    t   |  (0-6, A-B)
+  Format A:  | opcode  |    d    |       addr       |  (7-9, C-F)
+
+
+ARITHMETIC and LOGICAL operations
+    1: add              R[d] &lt;- R[s] +  R[t]
+    2: subtract         R[d] &lt;- R[s] -  R[t]
+    3: and              R[d] &lt;- R[s] &amp;  R[t]
+    4: xor              R[d] &lt;- R[s] ^  R[t]
+    5: shift left       R[d] &lt;- R[s] &lt;&lt; R[t]
+    6: shift right      R[d] &lt;- R[s] &gt;&gt; R[t]
+
+TRANSFER between registers and memory
+    7: load address     R[d] &lt;- addr
+    8: load             R[d] &lt;- M[addr]
+    9: store            M[addr] &lt;- R[d]
+    A: load indirect    R[d] &lt;- M[R[t]]
+    B: store indirect   M[R[t]] &lt;- R[d]
+
+CONTROL
+    0: halt             halt
+    C: branch zero      if (R[d] == 0) PC &lt;- addr
+    D: branch positive  if (R[d] &gt;  0) PC &lt;- addr
+    E: jump register    PC &lt;- R[d]
+    F: jump and link    R[d] &lt;- PC; PC &lt;- addr
+
+
+Register 0 always reads 0.
+Loads from M[FF] come from stdin.
+Stores to  M[FF] go to stdout.
+
+16-bit registers (using two's complement arithmetic)
+16-bit memory locations
+ 8-bit program counter</pre>
+</body>
+</html>

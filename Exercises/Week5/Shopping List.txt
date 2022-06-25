@@ -1,0 +1,10 @@
+Home Furnishings Store:
+-----------------------
+- picture frame: 16 by 20, white
+- picture frame: 11 by 14, pine
+
+Hardware Store:
+---------------
+- baseboard: 1/2-inch x 4 1/2-inch x 96-inch Modern MDF Primed, Quantity 10
+- framing: 1/4-inch x 2 1/2-inch x 96-inch Modern MDF Primed, Quantity 6
+- cupboard door handle: 5 1/2-inch, Antique Brass, Quantity 25

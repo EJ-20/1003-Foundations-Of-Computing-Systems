@@ -1,0 +1,225 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <script language="javascript" src="../../labs/js/prettify.js"></script>
+      <script language="javascript" src="../../labs/js/solutions.js"></script>
+      <link rel="stylesheet" type="text/css" href="../../labs/css/labs.css">
+      <link rel="stylesheet" type="text/css" href="../../labs/css/prettify.css">
+      <title> Computer Science 1003 - Regular Expressions and DFA Practice Exercises</title>
+</head>
+
+<body onload="prettyPrint()">
+<div id="masthead"><img style="border: 2px solid #FFFFFF;" src="../../labs/images/MUN-Logo-RGB-small.jpg" /> Computer Science 1003</div>
+<div id="submasthead">Regular Expressions and DFA Practice Exercises</div>
+<!--
+<div id="buttons">
+<input type="button" value="Show All Solutions" onClick="enableSolutions('block')"> 
+<input type="button" value="Hide All Solutions" onClick="enableSolutions('none')">
+</div>
+<br/><br/>
+-->
+<div class="topic">
+<p>&nbsp;</p>
+<p>Lots of exercises here to get you familiar with writing regular expressions and drawing deterministic finite automata.</p>
+<p>When you have found the solutions, compare each regular expression with its corresponding DFA. &nbsp;Notice how some complex expressions have comparatively equivalent DFA, and vice versa.</p>
+<p><em>Note:&nbsp;</em>There is usually more than one regular expression or DFA that describes a language, so consider the solutions given here as&nbsp;<em>representative</em>, rather than&nbsp;<em>definitive</em>.</p>
+<p>&nbsp;</p>
+<h2>Exercises</h2>
+<p>For each of the following languages:</p>
+<p style="padding-left: 30px;">a) Write a regular expression.</p>
+<p style="padding-left: 30px;">b) Draw a deterministic finite automaton.</p>
+<p>&nbsp;</p>
+<p>1. Strings that only contain 0's.</p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<p><span style="color: #38761d;">a) Regular expression: 0*</span></p>
+<p><span style="color: #38761d;">b) <img src="q1.png" width="500px" /></span></p>
+</div>
+<p>&nbsp;</p>
+<p>2. All possible binary strings.</p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<p><span style="color: #38761d;">a) Regular expression: (0|1)*</span></p>
+<p><span style="color: #38761d;">b) <img src="q2.png" width="400px" /></span></p>
+</div>
+<p>&nbsp;</p>
+<p>3. All binary strings, except for the empty string.</p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<p><span style="color: #38761d;">a) Regular expression: (0|1)(0|1)* , or can write as (0|1)+</span></p>
+<p><span style="color: #38761d;">b) <img src="q3.png" width="500px" /></span></p>
+</div>
+<p>&nbsp;</p>
+<p>4. String is either a or bb or bab.</p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<p><span style="color: #38761d;">a) Regular expression: a|bb|bab</span></p>
+<p><span style="color: #38761d;">b) <img src="q4.png" width="700px" /></span></p>
+</div>
+<p>&nbsp;</p>
+<p>5. Strings are taken from the alphabet {x,y}, and begin with x and end with y.</p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<p><span style="color: #38761d;">a) Regular expression: x(x|y)*y</span></p>
+<p><span style="color: #38761d;">b) <img src="q5.png" width="500px" /></span></p>
+</div>
+<p>&nbsp;</p>
+<p>6. Binary strings that end with 00.</p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<p><span style="color: #38761d;">a) Regular expression: (0|1)*00</span></p>
+<p><span style="color: #38761d;">b) <img src="q6.png" width="500px" /></span></p>
+</div>
+<p>&nbsp;</p>
+<p>7. Strings are taken from the alphabet {s,t,u} and contain at least three t's:</p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<p><span style="color: #38761d;">a) Regular expression: ((s|u)*t){3}(s|u)*</span></p>
+<p><span style="color: #38761d;">b) <img src="q7.png" width="700px" /></span></p>
+</div>
+<p>&nbsp;</p>
+<p>8. Strings are taken from the alphabet {s,t,u} and contain at least three <em>consecutive</em> t's:</p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<p><span style="color: #38761d;">a) Regular expression: (s|u)*ttt(s|u)* , or (s|u)*t{3}(s|u)*</span></p>
+<p><span style="color: #38761d;">b) <img src="q8.png" width="700px" /></span></p>
+</div>
+<p>&nbsp;</p>
+<p>9. Binary strings that contain the substring 110.</p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<p><span style="color: #38761d;">a) Regular expression: (0|1)*110(0|1)*</span></p>
+<p><span style="color: #38761d;">b) <img src="q9.png" width="700px" /></span></p>
+</div>
+<p>&nbsp;</p>
+<p>10. Binary strings that <em>don't</em> contain the substring 110.</p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<p><span style="color: #38761d;">a) Regular expression: (0|10)*1*</span></p>
+<p><span style="color: #38761d;">b) <img src="q10.png" width="700px" /></span></p>
+</div>
+<p>&nbsp;</p>
+<p>11. Strings are taken from the alphabet {x,y}, and contain at least two x's, but not consecutive x's.</p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<p><span style="color: #38761d;">a) Regular expression: y*xyy*x(yy*x)*y*</span></p>
+<p><span style="color: #38761d;">b) <img src="q11.png" width="700px" /></span></p>
+</div>
+<p>&nbsp;</p>
+<p>12. Strings are taken from the alphabet {a,b,c}, have length of at least 3 characters, and the third character is c.</p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<p><span style="color: #38761d;">a) Regular expression: ..c.* is simplest, or can write as (a|b|c){2}c(a|b|c)*</span></p>
+<p><span style="color: #38761d;">b) <img src="q12.png" width="700px" /></span></p>
+</div>
+<p>&nbsp;</p>
+<p>13. Binary strings where the number of 0's is a multiple of 3.</p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<p><span style="color: #38761d;">a) Regular expression: ((1*0){3})*1*</span></p>
+<p><span style="color: #38761d;">b) <img src="q13.png" width="700px" /></span></p>
+</div>
+<p>&nbsp;</p>
+<p>14. Strings are taken from the alphabet {a,b}, and start and end with the same character.</p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<p><span style="color: #38761d;">a) Regular expression: (a(b|a)*a)|(b(b|a)*b)</span></p>
+<p><span style="color: #38761d;">b) <img src="q14.png" width="700px" /></span></p>
+</div>
+<p>&nbsp;</p>
+<p>15. Binary strings that start with 0 and have odd length, or start with 1 and have even length.</p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<p><span style="color: #38761d;">a) Regular expression: (0|1(0|1))(0|1){2})*</span></p>
+<p><span style="color: #38761d;">b) <img src="q15.png" width="700px" /></span></p>
+</div>
+<p class="topic">&nbsp;</p>
+<!--
+<div class="solution">
+<pre class="prettyprint"># Exercises 3 to 5: Fractions. Rational class and test client:
+
+class Rational:
+    
+    def __init__(self, x, y):
+        self.numerator = x
+        self.denominator = y
+    
+    def __add__(self, b):
+        n = self.numerator * b.denominator + b.numerator * self.denominator
+        d = self.denominator * b.denominator
+        return Rational(n, d)
+    
+    def __sub__(self, b):
+        n = self.numerator * b.denominator - b.numerator * self.denominator
+        d = self.denominator * b.denominator
+        return Rational(n, d)
+    
+    def __mul__(self, b):
+        n = self.numerator * b.numerator
+        d = self.denominator * b.denominator
+        return Rational(n, d)
+    
+    def __abs__(self):
+        n = abs(self.numerator)
+        d = abs(self.denominator)
+        return Rational(n, d)
+    
+    def __str__(self):
+        return str(self.numerator) + "/" + str(self.denominator)
+    
+    def simplest(self):
+        # find greatest common divisor
+        # (note: there is a far more elegant recursive method for this - look it up!)
+        gcd = 1
+        max = self.numerator if abs(self.numerator) &gt; abs(self.denominator) else self.denominator
+        for index in range(1, max):
+            if self.numerator % index == 0 and self.denominator % index == 0:
+                gcd = index
+        
+        # return the reduced fraction
+        n = self.numerator//gcd
+        d = self.denominator//gcd
+        if d &lt; 0:
+            n = 0 - n
+            d = 0 - d
+        return Rational(n, d)
+
+    def __eq__(self, b):
+        f1 = self.simplest()
+        f2 = b.simplest()
+        return f1.numerator == f2.numerator and f1.denominator == f2.denominator
+
+# test client
+def main():
+    third = Rational(1,3)
+    twoFourths = Rational(2,4)
+    half = Rational(5,10)
+    negDenominator = Rational(3,-7)
+    added = third + twoFourths
+    subtracted = third - half
+    multiplied = third * twoFourths
+    testEqualPass = (half == twoFourths)
+    testEqualFail = (half == third)
+    
+    # output to console
+    print("half:", str(half))
+    print("two-fourths:", str(twoFourths))
+    print("simplest form of 2/4:", str(twoFourths.simplest()))
+    print("test negative denonimator 3/-7 fixed (expect -3/7).  Result:", str(negDenominator.simplest()))
+    print("1/3 + 2/4 =", str(added))
+    print("1/3 - 5/10 =", str(subtracted))
+    print("1/3 * 2/4 =", str(multiplied))
+    print("test two-fourths == half (expect True):", testEqualPass)
+    print("test half == third (expect False).  Result:", testEqualFail)
+    
+if __name__ == '__main__':
+    main()
+</pre>
+</div>
+-->
+<p class="topic"><em>Some of these exercises were adapted in part from questions at&nbsp;qatar.cmu.edu/cs/15212.</em></p>
+</div>
+</body>
+</html>

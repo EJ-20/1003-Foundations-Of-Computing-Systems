@@ -1,0 +1,208 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <script language="javascript" src="../../labs/js/prettify.js"></script>
+      <script language="javascript" src="../../labs/js/solutions.js"></script>
+      <link rel="stylesheet" type="text/css" href="../../labs/css/labs.css">
+      <link rel="stylesheet" type="text/css" href="../../labs/css/prettify.css">
+      <title> Computer Science 1003 - Recursion Practice Exercises</title>
+</head>
+
+<body onload="prettyPrint()">
+<div id="masthead"><img style="border: 2px solid #FFFFFF;" src="../../labs/images/MUN-Logo-RGB-small.jpg" /> Computer Science 1003</div>
+<div id="submasthead">Data Types Practice Exercises</div>
+<!--
+<div id="buttons">
+<input type="button" value="Show All Solutions" onClick="enableSolutions('block')"> 
+<input type="button" value="Hide All Solutions" onClick="enableSolutions('none')">
+</div>
+<br/><br/>
+-->
+<div class="topic">
+<p>&nbsp;</p>
+<p>Here are a few short practice exercises to get you back into the swing of creating classes and using objects.</p>
+<p class="topic">&nbsp;</p>
+<h2 class="topic">Exercise 1: Rectangle</h2>
+<p class="topic">Complete these methods for the&nbsp;<span style="color: #085394; font-size: 12pt; font-family: 'courier new', courier, sans-serif;"><strong>Rectangle</strong></span>&nbsp;class, which&nbsp;can be found in <a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=393909&amp;type=content&amp;rcode=mun-1833932" target="_blank" rel="noopener">Code for Practice Exercises</a>.</p>
+<ul>
+<li class="topic">
+<p><strong><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt; color: #085394;">perimeter(self)</span></strong></p>
+<ul>
+<li class="topic">
+<p>returns the perimeter of the rectangle</p>
+</li>
+</ul>
+</li>
+<li class="topic">
+<p><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt; color: #085394;"><strong>overlaps(self, other)</strong></span></p>
+<ul>
+<li class="topic">
+<p>returns <strong><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt; color: #9900ff;">True</span></strong> if self overlaps the other rectangle, otherwise <strong><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt; color: #9900ff;">False</span></strong></p>
+</li>
+<li class="topic">
+<p>treat coincident lines as overlapping, so <strong><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt; color: #9900ff;"><span style="color: #085394;">a.overlaps(a</span>)</span></strong> returns <strong><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt; color: #9900ff;">True</span></strong></p>
+</li>
+<li class="topic">
+<p>treat rectangles as overlapping if one contains the other</p>
+</li>
+</ul>
+</li>
+<li class="topic">
+<p><span style="font-size: 12pt; font-family: 'courier new', courier, sans-serif; color: #085394;"><strong>contains(self, other)</strong></span></p>
+<ul>
+<li class="topic">
+<p>returns <strong><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt; color: #9900ff;">True</span></strong> is self contains the other rectangle within its boundaries, otherwise <strong><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt; color: #9900ff;">False</span></strong></p>
+</li>
+<li class="topic">
+<p><strong><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt; color: #9900ff;"></span></strong>ensure that <span style="color: #085394;"><strong><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt;">a.contains(a)</span></strong></span>&nbsp;returns <strong><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt; color: #9900ff;">True</span></strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<p></p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<pre class="prettyprint"># Exercise 1: Rectangle.  Methods to add:
+
+    # Return the perimeter of self.
+    def perimeter(self):
+        return 2 * (self.w + self.h)
+
+    # Return True if self overlaps other, otherwise False.
+    def overlaps(self, other):
+        if (self.x &lt;= other.x + other.w and
+        self.x + self.w &gt;= other.x and
+        self.y &lt;= other.y + other.h and
+        self.y + self.h &gt;= other.y): return True
+        return False
+        # (Why does this work? Go and find out!)
+
+    # Return True if other is completely inside of self, otherwise False.
+    def contains(self, other):
+        if (self.x &lt;= other.x and self.x + self.w &gt;= other.x + other.w and self.y &lt;= other.y and self.y + self.h &gt;= other.y + other.h): return True
+        return False
+</pre>
+</div>
+<p></p>
+<h2 class="topic">Exercise 2: Stopwatch</h2>
+<p class="topic">Add methods to the&nbsp;<span style="color: #085394; font-size: 12pt; font-family: 'courier new', courier, sans-serif;"><strong>Stopwatch</strong></span>&nbsp;class that allow clients to <span style="color: #085394;"><strong><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt;">stop()</span></strong></span> and <span style="color: #085394;"><strong><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt;">restart()</span></strong></span>&nbsp;the stopwatch. &nbsp;When restarted, the stopwatch should continue to measure time from the point where it was stopped. &nbsp;<span style="color: #085394; font-size: 12pt; font-family: 'courier new', courier, sans-serif;"><strong>Stopwatch</strong></span>&nbsp;can be found in <a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=393909&amp;type=content&amp;rcode=mun-1833932" target="_blank" rel="noopener">Code for Practice Exercises</a>.</p>
+<p></p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<pre class="prettyprint"># Exercise 2: Stopwatch.  Methods to add:
+
+    # Stop the stopwatch.
+    def stop(self):
+        self.end = time.time()
+    
+    # Restart the stopwatch.
+    def restart(self):
+        self.start = time.time() - self.elapsedTime()
+        self.end = None
+
+    # How to test stop() and restart() is an left as an open-ended exercise
+</pre>
+</div>
+<p></p>
+<h2 class="topic">Exercise 3: Fractions</h2>
+<p class="topic">Python provides a data type <span style="color: #085394; font-size: 12pt; font-family: 'courier new', courier, sans-serif;"><strong>Fraction</strong></span>, defined in the standard module <span style="font-size: 12pt; font-family: 'courier new', courier, sans-serif; color: #085394;"><strong>fractions.py</strong></span>, that implements rational numbers.</p>
+<p class="topic">Implement your own version of that data type, called&nbsp;<span style="font-size: 12pt; font-family: 'courier new', courier, sans-serif;"><strong><span style="color: #085394;">Rational</span></strong></span>, using this API:</p>
+<p class="topic"><br /><img src="https://introcs.cs.princeton.edu/python/32class/images/RationalApi.png" alt="Rational API" style="-webkit-text-stroke-width: 0px;" width="551" height="222" /></p>
+<p class="topic">Include a test client that exercises all of your methods.</p>
+<p><em>Solution available below Exercise 5.</em></p>
+<h2 class="topic">Exercise 4: Fractions</h2>
+<p class="topic">Extend your code from Exercise 3 by adding the method <strong><span style="color: #085394; font-family: 'courier new', courier, sans-serif; font-size: 12pt;">simplest()</span></strong>, which returns a fraction in its simplest form. &nbsp;For example, if <strong><span style="font-size: 12pt; font-family: 'courier new', courier, sans-serif;">a = 2/10</span></strong> then <span style="color: #085394;"><strong><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt;">a.simplest()</span></strong></span> will return <strong><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt;">1/5</span></strong>.</p>
+<p><em>Solution available below Exercise 5.</em></p>
+<h2 class="topic">Exercise 5: Fractions</h2>
+<p class="topic">Extend your code from Exercise 4 by adding the special (or 'magic') &nbsp;method <span style="font-size: 12pt; font-family: 'courier new', courier, sans-serif; color: #085394;"><strong><span style="color: #085394; font-family: 'courier new', courier, sans-serif;">__eq__(<span style="caret-color: #085394;">self, b</span>)</span></strong></span>. &nbsp;This returns <strong><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt; color: #9900ff;">True</span></strong>&nbsp;if <strong><span style="font-size: 12pt; font-family: 'courier new', courier, sans-serif;">a == b</span></strong>, and <strong><span style="font-family: 'courier new', courier, sans-serif; font-size: 12pt; color: #9900ff;">False</span></strong>&nbsp;otherwise.</p>
+<p class="topic">To avoid rounding errors, this method should not compare two fractions by converting them to decimal <em>(Why? &nbsp;Go find out!).</em> &nbsp;Instead it should decide if two fractions are equal by comparing the numerators and denominators of the simplest forms of each fraction.</p>
+<p></p>
+<input type="button" value="Show Solution" onclick="toggleNextSolution(this)" />
+<div class="solution">
+<pre class="prettyprint"># Exercises 3 to 5: Fractions. Rational class and test client:
+
+class Rational:
+    
+    def __init__(self, x, y):
+        self.numerator = x
+        self.denominator = y
+    
+    def __add__(self, b):
+        n = self.numerator * b.denominator + b.numerator * self.denominator
+        d = self.denominator * b.denominator
+        return Rational(n, d)
+    
+    def __sub__(self, b):
+        n = self.numerator * b.denominator - b.numerator * self.denominator
+        d = self.denominator * b.denominator
+        return Rational(n, d)
+    
+    def __mul__(self, b):
+        n = self.numerator * b.numerator
+        d = self.denominator * b.denominator
+        return Rational(n, d)
+    
+    def __abs__(self):
+        n = abs(self.numerator)
+        d = abs(self.denominator)
+        return Rational(n, d)
+    
+    def __str__(self):
+        return str(self.numerator) + "/" + str(self.denominator)
+    
+    def simplest(self):
+        # find greatest common divisor
+        # (note: there is a far more elegant recursive method for this - look it up!)
+        gcd = 1
+        max = self.numerator if abs(self.numerator) &gt; abs(self.denominator) else self.denominator
+        for index in range(1, max):
+            if self.numerator % index == 0 and self.denominator % index == 0:
+                gcd = index
+        
+        # return the reduced fraction
+        n = self.numerator//gcd
+        d = self.denominator//gcd
+        if d &lt; 0:
+            n = 0 - n
+            d = 0 - d
+        return Rational(n, d)
+
+    def __eq__(self, b):
+        f1 = self.simplest()
+        f2 = b.simplest()
+        return f1.numerator == f2.numerator and f1.denominator == f2.denominator
+
+# test client
+def main():
+    third = Rational(1,3)
+    twoFourths = Rational(2,4)
+    half = Rational(5,10)
+    negDenominator = Rational(3,-7)
+    added = third + twoFourths
+    subtracted = third - half
+    multiplied = third * twoFourths
+    testEqualPass = (half == twoFourths)
+    testEqualFail = (half == third)
+    
+    # output to console
+    print("half:", str(half))
+    print("two-fourths:", str(twoFourths))
+    print("simplest form of 2/4:", str(twoFourths.simplest()))
+    print("test negative denonimator 3/-7 fixed (expect -3/7).  Result:", str(negDenominator.simplest()))
+    print("1/3 + 2/4 =", str(added))
+    print("1/3 - 5/10 =", str(subtracted))
+    print("1/3 * 2/4 =", str(multiplied))
+    print("test two-fourths == half (expect True):", testEqualPass)
+    print("test half == third (expect False).  Result:", testEqualFail)
+    
+if __name__ == '__main__':
+    main()
+</pre>
+</div>
+<p class="topic"><em>These questions were adapted from exercises 1, 10 and 6 in section 3.2 of the online booksite.</em></p>
+</div>
+<p></p>
+</body>
+</html>

@@ -1,0 +1,15 @@
+The real file would be HUGE!
+
+LOCUS AC146846 128142 bp DNA linear HTG 13-NOV-2003
+DEFINITION Ornithorhynchus anatinus clone CLM1-393H9,
+ACCESSION AC146846
+VERSION AC146846.2 GI:38304214
+KEYWORDS HTG; HTGS_PHASE2; HTGS_DRAFT.
+SOURCE Ornithorhynchus anatinus (platypus) 
+ORIGIN
+     1 tgtatttcat ttgaccgtgc tgttttttcc cggtttttca gtacggtgtt agggagccac
+    61 gtgattctgt ttgttttatg ctgccgaata gctgctcgat gaatctctgc atagacagct  // a comment
+   121 gccgcaggga gaaatgacca gtttgtgatg acaaaatgta ggaaagctgt ttcttcataa
+   ...
+128101 ggaaatgcga cccccacgct aatgtacagc ttctttagat tg
+//
